@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import _ from "lodash";
 import AddTodo from "./AddTodo";
-const Todolist = () => {
+import DisplayTodo from "./DisplayTodo";
+const Home = () => {
   // const [name, setName] = useState("");
   const [todo, setTodo] = useState("");
   const [listTodo, setListTodo] = useState([
@@ -10,6 +11,10 @@ const Todolist = () => {
     { id: "todo 3", name: "Reading Book" },
   ]);
 
+  const myInfo = {
+    address: "HCM",
+    age: 23,
+  };
   const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -34,50 +39,26 @@ const Todolist = () => {
   };
   return (
     <div>
-      <AddTodo />
-      <label>ToDo name's : </label>
-      <input
-        value={todo}
-        type="text"
-        onChange={(event) => {
-          setTodo(event.target.value);
-        }}
+      <AddTodo
+        todo={todo}
+        setTodo={setTodo}
+        handleClickButton={handleClickButton}
       />
-      <br />
-      <button
-        type="button"
-        onClick={(event) => {
-          handleClickButton(event, event.target.value);
-        }}
-      >
-        Submit
-      </button>
-      <br />
-      <br />
+      <DisplayTodo
+        listTodo={listTodo}
+        lastName={"Eric"}
+        myInfo={myInfo}
+        handleDeleteTodoInParent={handleDeleteTodo}
+      />
+      {/* x=y x<-y */}
       Hello Todo list with name
       {/* {todo} */}
-      <div>-----List todo :------</div>
-      {listTodo.map((item, index) => {
-        console.log("Check item", item);
-        console.log("Check index", index);
-
-        return (
-          <div
-            key={item.id}
-            onClick={() => {
-              handleDeleteTodo(item.id);
-            }}
-          >
-            {item.name}
-          </div>
-        );
-      })}
     </div>
   );
 };
-export default Todolist;
+export default Home;
 
-// class Todolist extends React.Component {
+// class Home extends React.Component {
 //   //khai báo state
 //   state = {
 //     name: "",
