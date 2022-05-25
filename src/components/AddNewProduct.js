@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const AddNewProduct = () => {
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [size, setSize] = useState("");
+  const [price, setPrice] = useState(0);
+  const [size, setSize] = useState(0);
   const [color, setColor] = useState("");
-  const [isShowDetail, setIsShowDetail] = useState(true);
+  const [isShowDetail, setIsShowDetail] = useState(false);
   const handleClickBtn = () => {
     let object = {
       name,
@@ -13,12 +13,25 @@ const AddNewProduct = () => {
       size,
       color,
     };
-    console.log(">>> Check data", object);
+
+    let productList = localStorage.getItem("productList");
+    if (productList) {
+      let arr = JSON.parse(productList);
+      arr.push(object);
+      localStorage.setItem("productList", JSON.stringify(arr));
+    } else {
+      localStorage.setItem("productList", JSON.stringify([object]));
+    }
+    setName("");
+    setPrice(0);
+    setSize(0);
+    setColor("");
   };
 
   const handleHideShow = () => {
     setIsShowDetail(!isShowDetail);
   };
+
   return (
     <div>
       {isShowDetail ? (
@@ -68,6 +81,9 @@ const AddNewProduct = () => {
           </div>
         </fieldset>
       )}
+      <div>
+        List product :<div>{localStorage.getItem("productList")}</div>
+      </div>
     </div>
   );
 };

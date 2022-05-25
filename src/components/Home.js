@@ -10,7 +10,6 @@ const Home = () => {
     { id: "todo 2", name: "Using Facebook" },
     { id: "todo 3", name: "Reading Book" },
   ]);
-
   const myInfo = {
     address: "HCM",
     age: 23,
@@ -18,8 +17,12 @@ const Home = () => {
   const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  // console.log(">>check data:", listTodo);
+
   const handleClickButton = () => {
+    if (!todo) {
+      alert("Todo name is not emrty");
+      return;
+    }
     let todoId = randomIntFromInterval(4, 652);
     let todoItem = {
       id: `todo${todoId}`,
