@@ -1,0 +1,14 @@
+.weather-app-container {
+    .weather-app-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding-top: 15px;
+        height: 28px;
+        input {
+            width: 200px;
+            padding: 0 5px;
+        }
+    }
+}

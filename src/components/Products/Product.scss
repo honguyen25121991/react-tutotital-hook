@@ -1,21 +1,39 @@
 .product-container {
     display: flex;
+    background-color: #fff;
     .content-left {
-        width: 30%;
+        color: #000;
+
+        width: 50%;
         padding: 10px;
     }
     .img-up {
         img {
-            height: 300px;
+            height: 500px;
         }
     }
     .img-down {
         display: flex;
-        border: 1px solid green;
+        gap: 10px;
+
+        .img-small {
+            padding-top: 10px;
+            .active {
+                border: 3px solid rgba(69, 73, 59, 0.795);
+            }
+            img {
+                height: 80px;
+                width: 80px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+        }
     }
     .content-right {
-        width: 70%;
-        border: 1px solid green;
+        color: #000;
+        width: 50%;
+
+        background-color: #fafafa;
         .title {
             font-size: 18px;
             font-weight: 600;

@@ -4,7 +4,7 @@
     padding: 40px;
     font-size: 14px;
     background-color: #0b204b;
-    height: calc(100vh - 80px);
+    height: auto;
     display: flex;
     .content-left {
         width: 20%;
@@ -14,7 +14,6 @@
         width: 80%;
         padding: 10px;
         color: white;
-        border: 1px solid rgb(226, 32, 32);
         .input-product {
             display: flex;
             flex-direction: column;
@@ -47,10 +46,6 @@
         /* justify-content: center; */
         font-size: calc(10px + 2vmin);
         color: white;
-        span {
-            color: red;
-            font-size: 18px;
-        }
     }
 
     .App-link {
